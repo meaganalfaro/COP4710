@@ -1,0 +1,65 @@
+#include<stdio.h>
+void main(void){
+
+  //Arithmetic Operation
+  printf("Please enter an equation: ");
+  char input;
+  int a, b;
+  scanf("%d c% %d",a, input, b);
+
+  switch(input){
+    case '+':
+      printf("%d %c %d = %d\n",a, input, b, a + b); 
+      break;
+    case '-':
+      printf("%d %c %d = %d\n",a, input, b, a - b); 
+      break;
+    case '*':
+      printf("%d %c %d = %d\n",a, input, b, a * b); 
+      break;
+    case '\': 
+      printf("%d %c %d = %d\n", a, input, b, a / b); 
+      break;
+    case '%':
+      printf("%d %c %d = %d\n", a, input, b, a % b); 
+      break;
+  }
+
+  //Increment and Decrement Operation
+  printf("Increment or Decrement by 1?: (+ or -)");
+  char input2;
+  scanf(" %c", input2);
+  int me = 10;
+  if(input2 == '-')
+    printf("Before: %d After %d\n",me,me--);
+  else if(input2 == '+')
+    printf("Before: %d After %d\n",me,me++);
+  else
+    printf("Invalid operation");
+
+  //Comparison and Relational Operation
+  printf("Input two numbers: ");
+  int c, d;
+  scanf("%d %d",c, d);
+
+  if(c == d)
+    printf("%d and %d are equal\n",c,d);
+  else if(c < d)
+    printf("%d is less than %d\n",c,d);
+  else
+    printf("%d is greater %d\n",c,d);
+
+  //bitwise operators
+  printf("Please enter a value for x and y: ");
+  int e,f;
+  scanf("%d %d",e,f);
+
+  printf("%d AND %d = %d\n", e,f,e&f);
+  printf("%d OR %d = %d\n",e,f,e|f);
+  printf("%d XOR %d = %d\n",e,f,^);
+  printf("%d NOT = %d\n", e, ~e);
+  printf("%d LEFT SHIFT by 1 =  %d\n",e,e<<1);
+  printf("%d RIGHT SHIFT by 1 = %d\n",e,e>>1);
+
+  //Logical operators are: && (AND), || (OR), ! (NOT)
+}
