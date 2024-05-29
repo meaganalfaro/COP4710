@@ -1,0 +1,31 @@
+#include <stdio.h>
+void main(void){
+
+  int a = 1; //reserves 4 bytes
+  printf("Integer value: %d\n",a);
+  
+  short int b = 2; //reserves 2 bytes
+  printf("Short Integer value: %h\n",b);
+  
+  unsigned int c = 3; //reserves 2 byts and can only be positive
+  printf("Unsigned Interger value: %u\n",c);
+  
+  long int d = 4; // usually reserves 8 bytes
+  printf("Long Integer Value: %ld\n",d);
+
+  long long int e = 5; 
+  printf("Long Long Integer Value: %lld\n",e);
+
+  float f = 6; //reserves 4 bytes allows up to 6 digits after decimal
+  printf("Float Value: %.2f\n",f);
+
+  double g = 7; //reserves 8 bytes and allows up to 15 digits after decimal
+  printf("Double Value: %.2lf\n",g);
+
+  long double h = 8; //more presicion value
+  printf("Long double: %.2Lf\n",h);
+
+  char i = '9';
+  printf("Char: %c\n", i);
+
+}
