@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int num = 5;
+    int* ptr;
+    ptr = &num;
+    
+    printf("Address of num = %d \t %d\n", &num, ptr);
+    printf("Value of num = %d \t %d\n", num, *ptr);
+
+    return 0;
+}
