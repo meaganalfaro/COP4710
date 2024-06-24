@@ -1,0 +1,75 @@
+#include <stdio.h>
+
+void print(char*);
+int len(char*);
+void copy(char*, char*);
+void concat(char*, char*);
+int compare(char*, char*);
+
+int main() {
+    char fname[] = "Meagan"; //char *fname = "Meagan";
+    char lname[] = "Alfaro";
+    
+    print(fname);
+    print(lname);
+    
+    printf("Length of First Name = %d\n", len(fname));
+    
+    char temp[50];
+    copy(temp, lname);
+    print(temp);
+    
+    concat(fname, lname);
+    print(fname);
+
+    int check = compare(fname,lname);
+
+    printf("%d\n",check);
+
+    return 0;
+}
+
+void print(char* c){
+    
+    while(*c != '\0'){
+        printf("%c",*c);
+        c++;
+    }
+    printf("\n");
+}
+int len(char* c){
+    int length = 0;
+    while(*c != '\0'){
+        length++;
+        c++;
+    }
+    return length;
+}
+void copy(char* to, char* from){
+    while(*from != '\0'){
+        *to = *from;
+        to++;
+        from++;
+    }
+    *to = '\0';
+}
+
+void concat(char* s1, char* s2){
+    int l = len(s1);
+    while(*s2 != '\0'){
+        *(s1 + l) = *s2;
+        l++;
+        s2++;
+    }
+}
+int compare(char* s1, char* s2){
+    int l1 = len(s1);
+    int l2 = len(s2);
+    while(*s1 != '\0'){
+        if(*s1 != *s2)
+            return 0;
+        s1++;
+        s2++;
+    }
+    return 1;
+}
