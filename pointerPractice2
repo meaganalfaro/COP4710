@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+void doubles(int*, int);
+void printArray(int*, int);
+void square(int*, int);
+
+int main() {
+    int arr[] = {5,9,8,1,0,7,6,3};
+    
+    printf("arr = %d\n", arr);
+    printf("Address of array = %d\n", &arr[0]);
+    
+    printf("\n=======================================\n");
+    
+    printf("VALUES OF ARRAY: \n");
+    printArray(arr, sizeof(arr)/sizeof(arr[0]));
+    
+    printf("VALUES OF ARRAY ARE NOW DOUBLES: \n");
+    doubles(arr,sizeof(arr)/sizeof(arr[0]));
+    printArray(arr, sizeof(arr)/sizeof(arr[0]));
+    
+    printf("VALUES OF ARRAY ARE NOW SQUARED: \n");
+    square(arr, sizeof(arr)/sizeof(arr[0]));
+    printArray(arr, sizeof(arr)/sizeof(arr[0]));
+    
+    printf("\n=======================================\n");
+    
+    int* ptr;
+    ptr = arr;
+    
+    printf("Value of arr[0] = %d\n", arr[0]);
+    printf("Value of arr[0] = %d\n", *(arr));
+    printf("Value of arr[0] = %d\n", *ptr);
+    
+    printf("\n=======================================\n");
+    
+    int num = 0;
+    int* ptr2;
+    ptr2 = &num;
+    
+    printf("Address of num = %d\t%d\n", &num, ptr2);
+    printf("Value of num = %d\t%d\n", num, *ptr2);
+    
+    *ptr2 = 9;
+    printf("Value of num = %d\t%d\n", num, *ptr2);
+    
+    
+
+    return 0;
+}
+
+void doubles(int* ptr, int size){
+    for(int i = 0; i < size; i++)
+        *(ptr + i) = *(ptr + i) * 2;
+}
+
+void printArray(int* ptr, int size){
+    for(int i = 0; i < size; i++)
+        printf("%d\t", *(ptr + i));
+    printf("\n");
+}
+void square(int* ptr, int size){
+    for(int i = 0; i < size; i++)
+        *(ptr + i) *= *(ptr + i);
+}
