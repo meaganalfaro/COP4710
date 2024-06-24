@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+   char line[500];
+   printf("Enter a line: ");
+   fgets(line, sizeof(line), stdin);
+   char* p = line;
+   
+   int alpha = 0, digit = 0, lower = 0, upper = 0, blank = 0, pun = 0;
+   
+   while(*p != '\0'){
+        if(isalpha(*p))
+            alpha++;
+        if(isdigit(*p))
+            digit++;
+        if(islower(*p))
+            lower++;
+        if(isupper(*p))
+            upper++;
+        if(isblank(*p))
+            blank++;
+        if(ispunct(*p))
+            pun++;
+        
+        p++;
+   }
+   
+   	printf("You entered the following: \n");
+    printf("No. of alphabetical letters: %d\n",alpha);
+    printf("No. of digits: %d\n",digit);
+    printf("No. of lowercase letters: %d\n",lower);
+    printf("No. of uppercase letters: %d\n",upper);
+    printf("No. of blank space: %d\n",blank);
+    printf("No. of punctuation: %d\n",pun);
+
+    return 0;
+}
