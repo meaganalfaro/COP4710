@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void exchange(int*, int*);
+void doubles(int*);
+
+int main() {
+    int x = 7;
+    int y = 9;
+    printf("x = %d\n", x);
+    printf("y = %d\n", y);
+    doubles(&x);
+    printf("double of x = %d\n", x);
+    
+    exchange(&x,&y);
+    printf("%d\t%d\n", x,y);
+    return 0;
+}
+
+void exchange(int* x, int* y){
+    int l = *y;
+    *y = *x;
+    *x = l;
+}
+void doubles(int* z){
+    *z = *z * 2;
+}
