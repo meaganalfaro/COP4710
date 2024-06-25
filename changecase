@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <ctype.h>
+
+void upper(char*); // convert string in uppercase
+void lower(char*); // convert string in lower case
+void proper(char*); // convert string to proper case
+void toggle(char*); // convert string to toggle (Hello = hELLO)
+
+int main() {
+    char line[500];
+    printf("Please enter a line: ");
+    fgets(line, sizeof(line), stdin);
+    puts(line); 
+    
+    upper(line);
+    puts(line);
+    
+    lower(line);
+    puts(line);
+    
+    proper(line);
+    puts(line);
+    
+    toggle(line);
+    puts(line);
+    
+    return 0;
+}
+
+void upper(char* c){
+    while(*c != '\0'){
+        *c = toupper(*c);
+        c++;
+    }
+}
+void lower(char* c){
+    while(*c != '\0'){
+        *c = tolower(*c);
+        c++;
+    }
+}
+void proper(char* c){
+    *c = toupper(*c);
+    c++;
+    while(*c != '\0'){
+        
+        if(isspace(*c)){
+            c++;
+            *c = toupper(*c);
+        }else{
+            *c = tolower(*c);
+        }
+        c++;
+    }
+}
+void toggle(char* c){
+    while(*c != '\0'){
+        if(isupper(*c)){
+            *c = tolower(*c);
+        }else{
+            *c = toupper(*c);
+        }
+        c++;
+    }
+}
