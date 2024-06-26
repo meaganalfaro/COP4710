@@ -1,26 +1,26 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <ctype.h> // contains functions to manipulate characters
 
 int main() {
    char line[500];
    printf("Enter a line: ");
    fgets(line, sizeof(line), stdin);
-   char* p = line;
+   char* p = line; // pointer to line address
    
    int alpha = 0, digit = 0, lower = 0, upper = 0, blank = 0, pun = 0;
    
    while(*p != '\0'){
-        if(isalpha(*p))
+        if(isalpha(*p)) // checks if it is an alphabetical letter
             alpha++;
-        if(isdigit(*p))
+        if(isdigit(*p)) // checks if its a digit
             digit++;
-        if(islower(*p))
+        if(islower(*p)) // checks if it is a lower case letter
             lower++;
-        if(isupper(*p))
+        if(isupper(*p)) // checks if it is an upper case letter
             upper++;
-        if(isblank(*p))
+        if(isblank(*p)) // checks if it is a blank space: space, tab, next line
             blank++;
-        if(ispunct(*p))
+        if(ispunct(*p)) // checks if it is a punctuation 
             pun++;
         
         p++;
