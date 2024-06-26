@@ -3,17 +3,17 @@
 
 int main() {
     
-    int* p = (int*) malloc(5*sizeof(int)); // creates a pointer and 
+    int* p = (int*) malloc(5*sizeof(int)); // creates a pointer and allocates 5 * 4 bytes = 20 bytes
     for(int i = 0; i < 5; i++)
-        *(p+i) = i * 3;
+        *(p+i) = i * 3; // assigns the values
     for(int j = 0; j < 5; j++)
-        printf("%d\n", *(p+j));
+        printf("%d\n", *(p+j)); // prints the values 
         
-    printf("Value = %d\n", *p);
+    printf("Value = %d\n", *p); //prints the value of p = 0
     
-    p = realloc(p,2*sizeof(int));
+    p = realloc(p,2*sizeof(int)); // reallocates 2 more spots of memory now making it 20 + (2 * 4) = 28 bytes
     
-    free(p);
+    free(p); // releases the memory
     
     return 0;
 }
