@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-void print(char*);
-int len(char*);
-void copy(char*, char*);
-void concat(char*, char*);
-int compare(char*, char*);
+void print(char*); //recieves char pointer
+int len(char*); // receives char pointer
+void copy(char*, char*); //receives 2 char pointers
+void concat(char*, char*); //recieves 2 char pointers
+int compare(char*, char*); // recieves 2 char pointers
 
 int main() {
-    char fname[] = "Meagan"; //char *fname = "Meagan";
+    char fname[] = "Meagan"; //char *fname = "Meagan"; // <- since an array is a pointer to the value of 0 that is why both are used interchangably but by using the second there will not be '\0' that is why is isnt used often
     char lname[] = "Alfaro";
     
     print(fname);
@@ -24,47 +24,50 @@ int main() {
 
     int check = compare(fname,lname);
 
-    printf("%d\n",check);
+    printf("%d\n",check); //will return 0 if false and 1 as true
 
     return 0;
 }
 
 void print(char* c){
     
-    while(*c != '\0'){
-        printf("%c",*c);
-        c++;
+    while(*c != '\0'){ // in going through the array '\0' is the last value 
+        printf("%c",*c); //prints each character 
+        c++; // c needs to be incremented in order to go through the entire array
     }
     printf("\n");
 }
 int len(char* c){
     int length = 0;
     while(*c != '\0'){
-        length++;
+        length++; // increments length while going through entire array
         c++;
     }
-    return length;
+    return length; // returns the value which shows the length of the word
 }
 void copy(char* to, char* from){
-    while(*from != '\0'){
-        *to = *from;
-        to++;
-        from++;
+    while(*from != '\0'){ //going through the from loop
+        *to = *from; // this is adding each letter from lname to temp since it is empty 
+        to++; //increments temp
+        from++; //increments lname
     }
-    *to = '\0';
+    *to = '\0'; // adds \0 at the end 
 }
 
 void concat(char* s1, char* s2){
-    int l = len(s1);
+    int l = len(s1); // length of s1 is 6
     while(*s2 != '\0'){
-        *(s1 + l) = *s2;
-        l++;
-        s2++;
+        *(s1 + l) = *s2; //starting at 6 it is adding each character from s2
+        l++; // incrementing l so it continues
+        s2++; //incrementing s2
     }
+    *(s1 + l) = '\0'; //adds '\0' at the end of the expanded array
 }
 int compare(char* s1, char* s2){
-    int l1 = len(s1);
+    int l1 = len(s1); 
     int l2 = len(s2);
+    if(l1 != l2)
+        return 0; // comparing lengths first because if they are not equal no need to go through
     while(*s1 != '\0'){
         if(*s1 != *s2)
             return 0;
