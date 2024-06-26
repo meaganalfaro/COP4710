@@ -2,20 +2,20 @@
 #include <stdlib.h>
 
 void printHello(){
-    printf("Hello, World!\n");
+    printf("Hello, World!\n"); 
 }
 void printGoodbye(int n){
     for(int i = 0; i < n; i++)
         printf("Goodbye\n");
 }
 int main() {
-    void (*p)(); // declare a pointer to function
+    void (*p)(); // declare a pointer to function and since printHello has no parameters that is why it is followed by empty parentheis
     
-    p = &printHello; // <- can skip '&'
+    p = &printHello; // <- can skip '&' p = printHello
     //p = &printGoodbye;
     
     void (*ptr)(int);
-    ptr = &printGoodbye;
+    ptr = &printGoodbye; 
     
     p(); //printHello()
     ptr(5); // printGoodbye()
