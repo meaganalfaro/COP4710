@@ -5,24 +5,26 @@ void fillHeap(int*, int);
 void printHeap(int*, int);
 
 int main() {
-    printf("How many values do you want to store:");
+    printf("How many values do you want to store:"); 
     int size;
     scanf("%d", &size);
-    int* ptr = (int*) calloc(size, sizeof(int));
+    int* ptr = (int*) calloc(size, sizeof(int)); //  allocates memory with n * 4 bytes
     printf("\n");
-    //int* ptr = (int*) malloc(size * sizeof(int));
+    //int* ptr = (int*) malloc(size * sizeof(int)); // allocates memory with n * 4 bytes 
     fillHeap(ptr,size);
     printf("Following values are stored in Heap:\n");
     printHeap(ptr,size);
-    
+
+    free(ptr);
+
     return 0;
 }
 void fillHeap(int* p, int size){
     for(int i = 0; i < size; i++)
-        *(p+i) = i * 3;
+        *(p+i) = i * 3; // fills with values values 
 }
 void printHeap(int* p, int size){
     for(int i = 0; i < size; i++)
-        printf("%d\t", *(p + i));
+        printf("%d\t", *(p + i)); // prints out values
     printf("\n");
 }
