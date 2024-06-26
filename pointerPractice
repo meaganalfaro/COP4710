@@ -3,10 +3,10 @@
 int main() {
     int num = 5;
     int* ptr;
-    ptr = &num;
+    ptr = &num; // ptr is now pointing to the address of num
     
-    printf("Address of num = %d \t %d\n", &num, ptr);
-    printf("Value of num = %d \t %d\n", num, *ptr);
+    printf("Address of num = %d \t %d\n", &num, ptr); // use '&' to print address and ptr has the value of the address
+    printf("Value of num = %d \t %d\n", num, *ptr); // num has the value but by dereferencing ptr that prints out the value of num
 
     return 0;
 }
