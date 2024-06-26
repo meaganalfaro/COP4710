@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <ctype.h> //used to manipulate characters 
 
 void upper(char*); // convert string in uppercase
 void lower(char*); // convert string in lower case
@@ -9,8 +9,8 @@ void toggle(char*); // convert string to toggle (Hello = hELLO)
 int main() {
     char line[500];
     printf("Please enter a line: ");
-    fgets(line, sizeof(line), stdin);
-    puts(line); 
+    fgets(line, sizeof(line), stdin); //used to recieve value of string instead of scanf
+    puts(line); //used to display string
     
     upper(line);
     puts(line);
@@ -29,36 +29,35 @@ int main() {
 
 void upper(char* c){
     while(*c != '\0'){
-        *c = toupper(*c);
+        *c = toupper(*c); //changes each charater to upper case
         c++;
     }
 }
 void lower(char* c){
     while(*c != '\0'){
-        *c = tolower(*c);
+        *c = tolower(*c); //changes each character to lower case
         c++;
     }
 }
 void proper(char* c){
-    *c = toupper(*c);
-    c++;
+    *c = toupper(*c); //first letter is uppercase
+    c++; // goes to second letter
     while(*c != '\0'){
-        
-        if(isspace(*c)){
-            c++;
-            *c = toupper(*c);
+        if(isspace(*c)){ // if there is a space
+            c++; // increments by one to get to the next character
+            *c = toupper(*c); // changes it to uppercase
         }else{
-            *c = tolower(*c);
+            *c = tolower(*c); // if there is no space it will be lowered
         }
         c++;
     }
 }
 void toggle(char* c){
     while(*c != '\0'){
-        if(isupper(*c)){
-            *c = tolower(*c);
+        if(isupper(*c)){ // if there is an upper case 
+            *c = tolower(*c); // change to lower
         }else{
-            *c = toupper(*c);
+            *c = toupper(*c); // if it is not upper than it must be lower to it will change to upper
         }
         c++;
     }
