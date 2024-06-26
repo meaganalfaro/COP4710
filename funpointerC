@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void printHello(){
+    printf("Hello, World!\n");
+}
+void printGoodbye(int n){
+    for(int i = 0; i < n; i++)
+        printf("Goodbye\n");
+}
+int main() {
+    void (*p)(); // declare a pointer to function
+    
+    p = &printHello; // <- can skip '&'
+    //p = &printGoodbye;
+    
+    void (*ptr)(int);
+    ptr = &printGoodbye;
+    
+    p(); //printHello()
+    ptr(5); // printGoodbye()
+    
+    return 0;
+}
