@@ -8,29 +8,29 @@ void fun2(){
     printf("Function 2\n");
 }
 void fun3(void (*p)()){
-    p();
+    p(); // calls the pointer that is being passed
 }
 double calc(int* arr, int size, double (*ptr)(int*, int)){
-    ptr(arr,size);
-    double result = ptr(arr,size);
-    return result;
+   // ptr(arr,size); // calls the function which is in parameters
+    double result = ptr(arr,size); //gets the value from the function
+    return result; // returns result
 }
 double average(int* arr, int size){
     double sum = 0;
     for(int i = 0; i < size; i++)
-        sum += *(arr + i);
-    return sum/size;
+        sum += *(arr + i); // adds all the values of the array
+    return sum/size; // returns sum/size which is the average of the array
 }
 double sumOfSquare(int* arr, int size){
     double sos = 0;
     for(int i = 0; i < size; i++)
-        sos += (*(arr+i) * *(arr+i));
+        sos += (*(arr+i) * *(arr+i)); // gets the sum of each value of the array squared
     return sos;
 }
 double product(int* arr, int size){
     double prod = 1;
     for(int i = 0; i < size; i++)
-        prod *= *(arr+i);
+        prod *= *(arr+i); // multiplies all the values together
     return prod;
 }
 int main() {
@@ -39,10 +39,10 @@ int main() {
     printf("How many values do you want?\n");
     int numValues;
     scanf("%d",&numValues);
-    int* p = (int*) calloc(numValues, sizeof(int));
-    printf("Entre %d values:", numValues);
+    int* p = (int*) calloc(numValues, sizeof(int)); // allocates n amount of memory in heap
+    printf("Enter %d values:", numValues);
     for(int i = 0; i < numValues; i++)
-        scanf("%d",p+i);
+        scanf("%d",p+i); // user inputs values 
     printf("1. Average\n");
     printf("2. Sum of Squares\n");
     printf("3. Product\n");
@@ -50,9 +50,10 @@ int main() {
     scanf("%d",&choices);
     
     double result;
-    
+
+//calls calc function with parameters of users choice
     switch(choices){
-        case 1: result = calc(p,numValues,average); break;
+        case 1: result = calc(p,numValues,average); break; 
         case 2: result = calc(p,numValues,sumOfSquare); break;
         case 3: result = calc(p,numValues,product); break;
         default: printf("Invalid choice.\n"); exit(0);
@@ -60,6 +61,6 @@ int main() {
     
     printf("Result = %lf", result);
     free(p);
-    
+    //prints results and frees memory allocated in the heap 
     return 0;
 }
