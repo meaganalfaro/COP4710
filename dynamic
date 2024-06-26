@@ -3,7 +3,7 @@
 
 int main() {
     
-    int* p = (int*) malloc(5*sizeof(int));
+    int* p = (int*) malloc(5*sizeof(int)); // creates a pointer and 
     for(int i = 0; i < 5; i++)
         *(p+i) = i * 3;
     for(int j = 0; j < 5; j++)
