@@ -2,18 +2,19 @@
 #include <stdlib.h>
 
 int* add(int* x, int* y){
-    int* z = (int*) malloc(sizeof(int));
-    *z = *x + *y;
+    int* z = (int*) malloc(sizeof(int)); // 4 bytes which is the amount of a single integer value
+    *z = *x + *y; // adds 5 + 7;
     return z;
 }
 int main() {
     
     int a = 5;
     int b = 7;
-    int* c;
-    c = add(&a,&b);
+    int* c; // integer pointer
+    c = add(&a,&b); // passing the address of a and b 
     
     printf("%d\n", *c);
-    
+
+    free(c);
     return 0;
 }
