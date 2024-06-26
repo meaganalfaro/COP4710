@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-void doubles(int*, int);
-void printArray(int*, int);
-void square(int*, int);
+void doubles(int*, int); // recieves a pointer and an integer
+void printArray(int*, int); // recieves a pointer and an integer
+void square(int*, int); // recieves a pointer and an integer
 
 int main() {
     int arr[] = {5,9,8,1,0,7,6,3};
     
-    printf("arr = %d\n", arr);
-    printf("Address of array = %d\n", &arr[0]);
+    printf("arr = %d\n", arr); // an array name is equavialent to the address of the array at 0
+    printf("Address of array = %d\n", &arr[0]); // the first printf statement will be equal 
     
     printf("\n=======================================\n");
     
@@ -26,22 +26,22 @@ int main() {
     printf("\n=======================================\n");
     
     int* ptr;
-    ptr = arr;
+    ptr = arr; //ptr is now pointing to arr which is the same at ptr = &arr[0]
     
-    printf("Value of arr[0] = %d\n", arr[0]);
-    printf("Value of arr[0] = %d\n", *(arr));
-    printf("Value of arr[0] = %d\n", *ptr);
+    printf("Value of arr[0] = %d\n", arr[0]); 
+    printf("Value of arr[0] = %d\n", *(arr)); //since array name is equal to &arr[0] dereferencing it will give the value at arr[0]
+    printf("Value of arr[0] = %d\n", *ptr); // ptr is pointing to arr so dereferencing it will give value at arr[0]
     
     printf("\n=======================================\n");
     
     int num = 0;
     int* ptr2;
-    ptr2 = &num;
+    ptr2 = &num; // ptr2 is pointing to the address of num
     
-    printf("Address of num = %d\t%d\n", &num, ptr2);
+    printf("Address of num = %d\t%d\n", &num, ptr2); 
     printf("Value of num = %d\t%d\n", num, *ptr2);
     
-    *ptr2 = 9;
+    *ptr2 = 9; // affecting the ptr to num will also affect the value of num but without using the dereferencing symbol it will just point to the address of 9
     printf("Value of num = %d\t%d\n", num, *ptr2);
     
     
@@ -51,15 +51,15 @@ int main() {
 
 void doubles(int* ptr, int size){
     for(int i = 0; i < size; i++)
-        *(ptr + i) = *(ptr + i) * 2;
+        *(ptr + i) = *(ptr + i) * 2; // this statement is equivalent to arr[i] = arr[i] * 2
 }
 
 void printArray(int* ptr, int size){
     for(int i = 0; i < size; i++)
-        printf("%d\t", *(ptr + i));
+        printf("%d\t", *(ptr + i)); // dereferencing in order to get the value of the array at arr[i]
     printf("\n");
 }
 void square(int* ptr, int size){
     for(int i = 0; i < size; i++)
-        *(ptr + i) *= *(ptr + i);
+        *(ptr + i) *= *(ptr + i); // equivalent to arr[i] = arr[i] * arr[i]
 }
