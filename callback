@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void fun1(){
+    printf("Function 1\n");
+}
+void fun2(){
+    printf("Function 2\n");
+}
+void fun3(void (*p)()){
+    p();
+}
+double calc(int* arr, int size, double (*ptr)(int*, int)){
+    ptr(arr,size);
+    double result = ptr(arr,size);
+    return result;
+}
+double average(int* arr, int size){
+    double sum = 0;
+    for(int i = 0; i < size; i++)
+        sum += *(arr + i);
+    return sum/size;
+}
+double sumOfSquare(int* arr, int size){
+    double sos = 0;
+    for(int i = 0; i < size; i++)
+        sos += (*(arr+i) * *(arr+i));
+    return sos;
+}
+double product(int* arr, int size){
+    double prod = 1;
+    for(int i = 0; i < size; i++)
+        prod *= *(arr+i);
+    return prod;
+}
+int main() {
+    fun3(fun1);
+    printf("\n=====================================\n");
+    printf("How many values do you want?\n");
+    int numValues;
+    scanf("%d",&numValues);
+    int* p = (int*) calloc(numValues, sizeof(int));
+    printf("Entre %d values:", numValues);
+    for(int i = 0; i < numValues; i++)
+        scanf("%d",p+i);
+    printf("1. Average\n");
+    printf("2. Sum of Squares\n");
+    printf("3. Product\n");
+    int choices;
+    scanf("%d",&choices);
+    
+    double result;
+    
+    switch(choices){
+        case 1: result = calc(p,numValues,average); break;
+        case 2: result = calc(p,numValues,sumOfSquare); break;
+        case 3: result = calc(p,numValues,product); break;
+        default: printf("Invalid choice.\n"); exit(0);
+    }
+    
+    printf("Result = %lf", result);
+    free(p);
+    
+    return 0;
+}
