@@ -1,26 +1,26 @@
 #include <stdio.h>
 
-void exchange(int*, int*);
-void doubles(int*);
+void exchange(int*, int*); // accepts 2 pointers
+void doubles(int*); // accepts 1 pointer
 
 int main() {
     int x = 7;
     int y = 9;
-    printf("x = %d\n", x);
-    printf("y = %d\n", y);
-    doubles(&x);
-    printf("double of x = %d\n", x);
+    printf("x = %d\n", x); // prints out value
+    printf("y = %d\n", y); // prints out value
+    doubles(&x); // passing the address of x
+    printf("double of x = %d\n", x); // returns 14 since it changed the value at the address of x
     
-    exchange(&x,&y);
-    printf("%d\t%d\n", x,y);
+    exchange(&x,&y); // passing address of y and x
+    printf("%d\t%d\n", x,y); // displays the new switched value which is x = 9 and y = 14
     return 0;
 }
 
 void exchange(int* x, int* y){
-    int l = *y;
-    *y = *x;
-    *x = l;
+    int l = *y; // new variable is equal to the value of y (dereferenced y in order to get the value)
+    *y = *x; // y is now equal to the value of x
+    *x = l; // x is now equal to the original value of y
 }
 void doubles(int* z){
-    *z = *z * 2;
+    *z = *z * 2; // dereferences the pointer changing original value times 2
 }
