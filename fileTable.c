@@ -6,10 +6,12 @@ int main() {
 
     printf("Enter a file name: ");
     char fileName[25];
-    
+    //fgets is line by line
+    // variable name, size of variable, and file pointer
     fgets(fileName, sizeof(fileName), stdin);
     fileName[strlen(fileName) - 1] = '\0';
-    
+
+    // creates file pointing to file in write mode
     FILE *fp = fopen(fileName, "w");
     
     if(fp == NULL){
