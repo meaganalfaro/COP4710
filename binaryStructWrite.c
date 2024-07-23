@@ -9,14 +9,15 @@ int main() {
         char name[20];
         float salary;
     };
-    
+    //nicknames struct Employee to emp
     typedef struct Employee emp;
     
     emp e[3] = {{11, "John", 91.23}, {22, "Robert", 47.23}, {33, "David", 67.35}};
-    
+    // creates a file pointer to binary file in write mode
     FILE *write = fopen("employee.dat", "wb");
     
     for(int i = 0; i < 3; i++){
+        //recieves a variable pointer, the size of the variable, number of instances, and a file pointer
         fwrite(&e[i], sizeof(e[i]), 1, write);
     }
     // not practical may change size -> fwrite(&e, sizeof(e), 3, write);
