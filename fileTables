@@ -6,10 +6,12 @@ int main() {
 
     printf("Enter a file name: ");
     char fileName[25];
-    
+
+    //line by line recieves variable, size of variable, and file pointer
     fgets(fileName, sizeof(fileName), stdin);
     fileName[strlen(fileName) - 1] = '\0';
-    
+    //counts the \n so you must take away one
+    //opens file in write mode
     FILE *fp = fopen(fileName, "w");
     
     if(fp == NULL){
