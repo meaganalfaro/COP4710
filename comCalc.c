@@ -8,8 +8,9 @@ int main(int argc, char *argv[]){
                 printf("Invalid Expression!");
                 exit(0);
         }
-
+	// compares the value at 2 
 	if(strcmp(argv[2], "+") == 0)
+		//atoi : arguments to integers
                 printf("Sum is %d\n", atoi(argv[1]) + atoi(argv[3]));
         else if(strcmp(argv[2], "-") == 0)
                 printf("Difference is %d\n", atoi(argv[1]) - atoi(argv[3]));
