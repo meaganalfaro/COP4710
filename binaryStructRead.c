@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int main() {
+    // creates a file pointer to binary file in read mode
     FILE *read = fopen("employee.dat", "rb");
     if(read == NULL){
         printf("Unable to open file.\n");
@@ -16,6 +17,8 @@ int main() {
     
     struct Employee e[3];
     for(int i = 0; i < 3; i++){
+        //reads file 
+        //fread recieves a variable pointer, size of variable, number of instances, and a file pointer 
         fread(&e[i], sizeof(e[i]), 1, read);
         printf("e%d ID = ", i+1, e[i].id);
         printf("e%d Name = ", i+1, e[i].name);
