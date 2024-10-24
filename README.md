@@ -15,7 +15,3 @@ This repository contains various practice files from my **Systems Programming** 
 - **Concurrency**
   - `thread_example.c`: A basic example of creating and managing threads using the `pthread` library.
     
-- **Network Programming**
-  - `tcp_server.c`: Simple implementation of a TCP server using sockets.
-  - `tcp_client.c`: Client-side code to communicate with the server.
-
